@@ -13,6 +13,7 @@ extension strToInt on String {
 class _CalculatorState extends State<Calculator> {
   String displayedVal = "0";
   bool operPressed = false;
+  bool equalPressed = false;
   Map<dynamic, dynamic> values = {
     Text("AC"): Colors.orange,
     Icon(
@@ -45,7 +46,6 @@ class _CalculatorState extends State<Calculator> {
   };
   @override
   Widget build(BuildContext context) {
-
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 24) * 0.5;
     final double itemWidth = size.width / 2;
@@ -114,19 +114,18 @@ class _CalculatorState extends State<Calculator> {
 
                   onTap: () {
                     setState(() {
-                      if (displayedVal == "0") {
+                      if (displayedVal == "0" || equalPressed) {
                         displayedVal = "";
+                        equalPressed = false;
                       }
                       dynamic tappedVal = values.keys.toList()[index];
                       if (tappedVal.runtimeType == Icon) {
-                        if(index == 1){
-                        displayedVal =
-                            displayedVal.replaceAll(RegExp(r'.$'), "");
-
-                        }else{
-
-                        }
+                        if (index == 1) {
+                          displayedVal =
+                              displayedVal.replaceAll(RegExp(r'.$'), "");
+                        } else {}
                       } else if (tappedVal.data == "=") {
+                        equalPressed = true;
                         Parser p = new Parser();
                         String calcVal =
                             displayedVal.replaceAll(RegExp(r'÷'), '/');
