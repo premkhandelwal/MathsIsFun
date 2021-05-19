@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
+import 'package:maths_is_fun/globals.dart' as globals;
 
 class Calculator extends StatefulWidget {
   @override
@@ -11,6 +12,11 @@ extension strToInt on String {
 }
 
 class _CalculatorState extends State<Calculator> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   String displayedVal = "0";
   bool operPressed = false;
   bool equalPressed = false;
@@ -36,24 +42,24 @@ class _CalculatorState extends State<Calculator> {
     Text("2"): Colors.white,
     Text("3"): Colors.white,
     Text("+"): Colors.orange,
-    Icon(
+    Text(""): Colors.black,
+    /* Icon(
       Icons.expand,
       color: Colors.orange,
-    ): Colors.orange,
+    ): Colors.orange, */
     Text("0"): Colors.white,
     Text("."): Colors.white,
     Text("="): Colors.white,
   };
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - kToolbarHeight - 24) * 0.5;
-    final double itemWidth = size.width / 2;
     if (displayedVal.endsWith(".0")) {
       displayedVal = displayedVal.toInt().toString();
     }
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        Container(height: (globals.height) * 0.275),
         Container(
           child: Align(
             alignment: Alignment.bottomRight,
@@ -73,7 +79,7 @@ class _CalculatorState extends State<Calculator> {
           // color: Colors.white,
         ),
         Container(
-            height: itemHeight + 60,
+            height: (globals.height) * 0.5 + 60,
             alignment: Alignment.bottomCenter,
             child: GridView.builder(
               // shrinkWrap: true,
@@ -124,6 +130,8 @@ class _CalculatorState extends State<Calculator> {
                           displayedVal =
                               displayedVal.replaceAll(RegExp(r'.$'), "");
                         } else {}
+                      }else if (tappedVal.data == "") {
+                        displayedVal = displayedVal;
                       } else if (tappedVal.data == "=") {
                         equalPressed = true;
                         Parser p = new Parser();
@@ -142,7 +150,7 @@ class _CalculatorState extends State<Calculator> {
                       } else if (tappedVal.data == "%") {
                         displayedVal =
                             (double.parse(displayedVal) / 100).toString();
-                      } else {
+                      }  else {
                         displayedVal += values.keys.toList()[index].data;
                       }
                     });
