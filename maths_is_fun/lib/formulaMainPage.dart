@@ -41,54 +41,60 @@ class _FormulaPageState extends State<FormulaPage> {
         alignment: Alignment.topCenter,
         // color: Colors.orange,
         height: globals.height * 0.962,
-        child: GridView.builder(
-            itemCount: divisions.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 10.0),
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (ctx) => Formulae(
-                                section: divisions[index]["name"],
-                              )));
-                },
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.science,
-                      color: Colors.grey,
-                      size: 40,
-                    ),
-                    Center(
-                      child: Text(
-                        divisions[index]["name"],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 15),
+        child: SingleChildScrollView(
+          child: GridView.builder(
+              shrinkWrap: true,
+              itemCount: divisions.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 0.1,
+                crossAxisSpacing: 0.1,
+                // childAspectRatio: 3.5,
+              ),
+              // padding: EdgeInsets.symmetric(vertical: 40.0, horizontal: 10.0),
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (ctx) => Formulae(
+                                  section: divisions[index]["name"],
+                                )));
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.science,
+                        color: Colors.grey,
+                        size: 40,
                       ),
-                    )
-                  ],
-                ),
-              );
-              /* GestureDetector(
-              child: Container(
-                  // color: Colors.grey,
-                  child: Center(
-                      child: Text(
-                "Basic",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.grey,
-                ),
-              ))),
-            ), */
-            }));
+                      Center(
+                        child: Text(
+                          divisions[index]["name"],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white, fontSize: 15),
+                        ),
+                      )
+                    ],
+                  ),
+                );
+                /* GestureDetector(
+                child: Container(
+                    // color: Colors.grey,
+                    child: Center(
+                        child: Text(
+                  "Basic",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.grey,
+                  ),
+                ))),
+              ), */
+              }),
+        ));
   }
 }

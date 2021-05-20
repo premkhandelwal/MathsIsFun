@@ -32,10 +32,9 @@ class _HomePageState extends State<HomePage> {
     globals.height = size.height - kToolbarHeight;
     globals.width = size.width / 2;
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(children: [
-          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title:   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             IconButton(
               autofocus: true,
               onPressed: () {
@@ -80,10 +79,10 @@ class _HomePageState extends State<HomePage> {
               ),
               splashRadius: 0.1,
             ),
-          ]),
-          first.hasFocus ? Calculator() : Container(),
-          second.hasFocus ? FormulaPage() : Container()
-        ]),
+          ]),),
+      body: Container(
+        // padding: EdgeInsets.all(20),
+        child: first.hasFocus ? Calculator() :second.hasFocus ? FormulaPage() : Container(),
       ),
     );
   }

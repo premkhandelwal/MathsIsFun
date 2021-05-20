@@ -102,7 +102,7 @@ Map formulae = {
           ],
         )),
   },
-  "Indices": {},
+  "Indices": {Text("a+b =c")},
   "Trignometry": {},
   "Derivatives": {},
   "Integration": {},
