@@ -102,8 +102,21 @@ Map formulae = {
           ],
         )),
   },
-  "Indices": {Text("a+b =cd")},
-  "Trignometry": {},
+  "Indices": {Text("a+b =c")},
+  "Trignometry": {
+    0: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        RaiseToPower(
+              char: "(sinθ)",
+              power: 2,
+            ),
+        RaiseToPower(
+              char: "+ cosθ",
+              power: 2,
+            ),
+       Text("  = 1"),
+       
+  },
   "Derivatives": {},
   "Integration": {},
   "Logarithms": {},
