@@ -104,7 +104,7 @@ Map formulae = {
   },
   "Indices": {Text("a+b =c")},
   "Trignometry": {
-    1: DefaultTextStyle(
+    0: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children:[
@@ -121,7 +121,7 @@ Map formulae = {
              ],
       )),
             
-   2: DefaultTextStyle(
+   1: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
@@ -137,30 +137,30 @@ Map formulae = {
            ],
       )),
             
-     3: DefaultTextStyle(
+     2: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
-            Text(1+)
+            Text("1+"),
         RaiseToPower(
              char: "tan",
              power: 2,
             ),
         RaiseToPower(
-              char: "= 1/cot",
-              power:2;
+              char: "θ= 1/cot",
+              power:2,
             ),
         Text("θ"),
           ],
      )),
-   4:  DefaultTextStyle(
+   3:  DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
-            Text("tanθcotθ=1),
-     )),
-  },
-  5: DefaultTextStyle(
+            Text("tanθ.cotθ=1"),
+            ]
+        )),  
+  4: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
@@ -169,11 +169,11 @@ Map formulae = {
              power: -1,
             ),
         RaiseToPower(
-              char: "x + cos",
+              char: "θ + cos",
               power:-1,
             ),
-          Text("x = π/2"),
-        Text("θ"),
+          Text("θ = π/2"),
+        
           ],
      )),
             
@@ -181,7 +181,7 @@ Map formulae = {
   "Integration": {},
   "Logarithms": {},
 
-  /*  */
+  },
 };
 
 class RaiseToPower extends StatelessWidget {
