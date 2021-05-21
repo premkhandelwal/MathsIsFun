@@ -104,17 +104,54 @@ Map formulae = {
   },
   "Indices": {Text("a+b =c")},
   "Trignometry": {
-    0: DefaultTextStyle(
+    1: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
         RaiseToPower(
-              char: "(sinθ)",
+              char: "sin",
               power: 2,
+              char: "θ "
             ),
         RaiseToPower(
-              char: "+ cosθ",
+              char: "+ cos",
               power: 2,
+              char: "θ "
             ),
-       Text("  = 1"),
+       Text(" = 1"),
+   2: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+        RaiseToPower(
+              char: "sec",
+              power: 2,
+              char: "θ "
+            ),
+        RaiseToPower(
+              char: "- tan",
+              power: 2,
+              char: "θ "
+            ),
+       Text(" = 1"),
+     3: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+        RaiseToPower(
+              text(1+)
+              char: "tan",
+              power: 2,
+              char: "θ "
+              text( =1)
+            ),
+        RaiseToPower(
+              char: "- tan",
+              power: 2,
+              char: "θ "
+            ),
+       Text(" = 1"),
+    
        
   },
   "Derivatives": {},
