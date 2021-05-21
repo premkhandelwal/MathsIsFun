@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:maths_is_fun/calculator.dart';
 import 'package:maths_is_fun/formulaMainPage.dart';
+import 'package:maths_is_fun/quizMainPage.dart';
 import 'globals.dart' as globals;
 
 class HomePage extends StatefulWidget {
@@ -34,55 +35,63 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title:   Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            IconButton(
-              autofocus: true,
-              onPressed: () {
-                setState(() {
-                  FocusScope.of(context).requestFocus(first);
-                });
-              },
-              focusNode: first,
-              icon: Icon(
-                Icons.calculate,
-                color: first.hasFocus ? Colors.purple : Colors.amber,
-              ),
-              splashRadius: 0.1,
+        title:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          IconButton(
+            autofocus: true,
+            onPressed: () {
+              setState(() {
+                FocusScope.of(context).requestFocus(first);
+              });
+            },
+            focusNode: first,
+            icon: Icon(
+              Icons.calculate,
+              color: first.hasFocus ? Colors.purple : Colors.amber,
             ),
-            IconButton(
-              // splashColor: Colors.transparent,
-              focusNode: second,
-              // focusColor: Colors.transparent,
-              // hoverColor: Colors.transparent,
-              splashRadius: 0.1,
+            splashRadius: 0.1,
+          ),
+          IconButton(
+            // splashColor: Colors.transparent,
+            focusNode: second,
+            // focusColor: Colors.transparent,
+            // hoverColor: Colors.transparent,
+            splashRadius: 0.1,
 
-              onPressed: () {
-                setState(() {
-                  FocusScope.of(context).requestFocus(second);
-                });
-              },
-              icon: Icon(
-                Icons.pie_chart,
-                color: second.hasFocus ? Colors.purple : Colors.amber,
-              ),
+            onPressed: () {
+              setState(() {
+                FocusScope.of(context).requestFocus(second);
+              });
+            },
+            icon: Icon(
+              Icons.pie_chart,
+              color: second.hasFocus ? Colors.purple : Colors.amber,
             ),
-            IconButton(
-              focusNode: third,
-              onPressed: () {
-                setState(() {
-                  FocusScope.of(context).requestFocus(third);
-                });
-              },
-              icon: Icon(
-                Icons.games,
-                color: third.hasFocus ? Colors.purple : Colors.amber,
-              ),
-              splashRadius: 0.1,
+          ),
+          IconButton(
+            focusNode: third,
+            onPressed: () {
+              setState(() {
+                FocusScope.of(context).requestFocus(third);
+              });
+            },
+            icon: Icon(
+              Icons.games,
+              color: third.hasFocus ? Colors.purple : Colors.amber,
             ),
-          ]),),
+            splashRadius: 0.1,
+          ),
+        ]),
+      ),
       body: Container(
         // padding: EdgeInsets.all(20),
-        child: first.hasFocus ? Calculator() :second.hasFocus ? FormulaPage() : Container(),
+
+        height: globals.height,
+        child: first.hasFocus
+            ? Calculator()
+            : second.hasFocus
+                ? FormulaPage()
+                : QuizMainPage(),
       ),
     );
   }

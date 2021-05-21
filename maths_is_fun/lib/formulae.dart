@@ -1,3 +1,5 @@
+
+  
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
@@ -103,12 +105,85 @@ Map formulae = {
         )),
   },
   "Indices": {Text("a+b =c")},
-  "Trignometry": {},
+  "Trignometry": {
+    0: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children:[
+        RaiseToPower(
+              char: "sin",
+              power: 2,
+             
+            ),
+        RaiseToPower(
+              char: "θ + cos",
+              power: 2,
+            ),
+       Text("θ = 1"),
+             ],
+      )),
+            
+   1: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+        RaiseToPower(
+              char: "sec",
+              power: 2, 
+            ),
+        RaiseToPower(
+              char: "θ - tan",
+              power: 2,
+            ),
+       Text("θ = 1"),
+           ],
+      )),
+            
+     2: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+            Text("1+"),
+        RaiseToPower(
+             char: "tan",
+             power: 2,
+            ),
+        RaiseToPower(
+              char: "θ= 1/cot",
+              power:2,
+            ),
+        Text("θ"),
+          ],
+     )),
+   3:  DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+            Text("tanθ.cotθ=1"),
+            ]
+        )),  
+  4: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+        RaiseToPower(
+             char: "sin",
+             power: -1,
+            ),
+        RaiseToPower(
+              char: "θ + cos",
+              power:-1,
+            ),
+          Text("θ = π/2"),
+        
+          ],
+     )),
+            
   "Derivatives": {},
   "Integration": {},
   "Logarithms": {},
 
-  /*  */
+  },
 };
 
 class RaiseToPower extends StatelessWidget {
