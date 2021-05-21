@@ -142,8 +142,8 @@ Map formulae = {
               text(1+)
               char: "tan",
               power: 2,
-              char: "θ "
-              text( =1)
+              char: "θ"
+              text( = 1)
             ),
         RaiseToPower(
               char: "- tan",
