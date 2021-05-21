@@ -111,14 +111,14 @@ Map formulae = {
         RaiseToPower(
               char: "sin",
               power: 2,
-              char: "θ "
+             
             ),
         RaiseToPower(
-              char: "+ cos",
+              char: "θ + cos",
               power: 2,
-              char: "θ "
+              θ,
             ),
-       Text(" = 1"),
+       Text("θ = 1"),
    2: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
