@@ -104,55 +104,79 @@ Map formulae = {
   },
   "Indices": {Text("a+b =c")},
   "Trignometry": {
-   0: DefaultTextStyle(
+    1: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
-        child: Row(children: [
-          RaiseToPower(
-            char: "sin",
-            power: 2,
-          ),
-          RaiseToPower(
-            char: "θ + cos",
-            power: 2,
-          ),
-          Text("θ = 1"),
-        ])),
+        child: Row(
+          children:[
+        RaiseToPower(
+              char: "sin",
+              power: 2,
+             
+            ),
+        RaiseToPower(
+              char: "θ + cos",
+              power: 2,
+            ),
+       Text("θ = 1"),
+             ],
+      )),
+            
    2: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
         RaiseToPower(
               char: "sec",
-              power: 2,
-              char: "θ "
+              power: 2, 
             ),
         RaiseToPower(
-              char: "- tan",
+              char: "θ - tan",
               power: 2,
-              char: "θ "
             ),
-       Text(" = 1"),
-            ])),
+       Text("θ = 1"),
+           ],
+      )),
+            
      3: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
+            Text(1+)
         RaiseToPower(
-              text(1+)
-              char: "tan",
-              power: 2,
-              char: "θ"
-              text( = 1)
+             char: "tan",
+             power: 2,
             ),
         RaiseToPower(
-              char: "- tan",
-              power: 2,
-              char: "θ "
+              char: "= 1/cot",
+              power:2;
             ),
-       Text(" = 1"),
-    
-       
+        Text("θ"),
+          ],
+     )),
+   4:  DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+            Text("tanθcotθ=1),
+     )),
   },
+  5: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+        RaiseToPower(
+             char: "sin",
+             power: -1,
+            ),
+        RaiseToPower(
+              char: "x + cos",
+              power:-1,
+            ),
+          Text("x = π/2"),
+        Text("θ"),
+          ],
+     )),
+            
   "Derivatives": {},
   "Integration": {},
   "Logarithms": {},
