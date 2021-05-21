@@ -104,21 +104,19 @@ Map formulae = {
   },
   "Indices": {Text("a+b =c")},
   "Trignometry": {
-    1: DefaultTextStyle(
+   0: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
-        child: Row(
-          children: [
-        RaiseToPower(
-              char: "sin",
-              power: 2,
-             
-            ),
-        RaiseToPower(
-              char: "θ + cos",
-              power: 2,
-              θ,
-            ),
-       Text("θ = 1"),
+        child: Row(children: [
+          RaiseToPower(
+            char: "sin",
+            power: 2,
+          ),
+          RaiseToPower(
+            char: "θ + cos",
+            power: 2,
+          ),
+          Text("θ = 1"),
+        ])),
    2: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
@@ -134,6 +132,7 @@ Map formulae = {
               char: "θ "
             ),
        Text(" = 1"),
+            ])),
      3: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
