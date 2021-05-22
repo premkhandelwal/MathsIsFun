@@ -22,159 +22,160 @@ class _QuizDisplayScreenState extends State<QuizDisplayScreen> {
     answerController.clear();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    Map quiz = {
-      1: {Center(child: Text("1, 5, 25, ?")): "125"},
-      2: {
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.end,
+  Map quiz = {
+    1: {Center(child: Text("1, 5, 5, 25, ?")): "125"},
+    2: {
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Text("2 = 6"),
+          Divider(height: 10),
+          Text("4 = 20"),
+          Divider(height: 10),
+          Text("5 = 30"),
+          Divider(height: 10),
+          Text("7 = ?"),
+        ],
+      ): "56"
+    },
+    3: {
+      Column(
+        children: [
+          Divider(height: 60),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              CustomTriangle(val1: 2, val2: 3, val3: 6),
+              Divider(),
+              CustomTriangle(val1: 5, val2: 4, val3: 20),
+            ],
+          ),
+          Divider(height: 60),
+          CustomTriangle(val1: 15, val2: 3, val3: "?"),
+        ],
+      ): "45"
+    },
+    4: {
+      Center(
+        child: Table(
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          border: TableBorder.all(
+            color: Colors.white,
+          ),
+          defaultColumnWidth: FixedColumnWidth(80),
           children: [
-            Text("2 = 6"),
-            Divider(height: 10),
-            Text("4 = 20"),
-            Divider(height: 10),
-            Text("5 = 30"),
-            Divider(height: 10),
-            Text("7 = ?"),
+            TableRow(children: [
+              Container(height: 70, child: Center(child: Text("12"))),
+              Container(height: 70, child: Center(child: Text("108"))),
+              Container(height: 70, child: Center(child: Text("60"))),
+            ]),
+            TableRow(children: [
+              Container(height: 70, child: Center(child: Text("36"))),
+              Container(height: 70, child: Center(child: Text("?"))),
+              Container(height: 70, child: Center(child: Text("48"))),
+            ]),
+            TableRow(children: [
+              Container(height: 70, child: Center(child: Text("24"))),
+              Container(height: 70, child: Center(child: Text("144"))),
+              Container(height: 70, child: Center(child: Text("96"))),
+            ])
           ],
-        ): "56"
-      },
-      5: {
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Table(
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(
-                  color: Colors.white,
-                ),
-                defaultColumnWidth: FixedColumnWidth(50),
-                children: [
-                  TableRow(children: [
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                  ]),
-                ],
-              ),
-              Text(
-                "   =   5",
-              )
-            ],
-          ),
-          Divider(
-            height: 70,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Table(
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                border: TableBorder.all(
-                  color: Colors.white,
-                ),
-                defaultColumnWidth: FixedColumnWidth(50),
-                children: [
-                  TableRow(children: [
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                  ])
-                ],
-              ),
-              Text("     =   ?")
-            ],
-          ),
-        ]): "14"
-      },
-      3: {
-        Column(
+        ),
+      ): "72"
+    },
+    5: {
+      Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Divider(height: 60),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              border: TableBorder.all(
+                color: Colors.white,
+              ),
+              defaultColumnWidth: FixedColumnWidth(50),
               children: [
-                CustomTriangle(val1: 2, val2: 3, val3: 6),
-                Divider(),
-                CustomTriangle(val1: 5, val2: 4, val3: 20),
+                TableRow(children: [
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                ]),
+                TableRow(children: [
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                ]),
               ],
             ),
-            Divider(height: 60),
-            CustomTriangle(val1: 15, val2: 3, val3: "?"),
+            Text(
+              "   =   5",
+            )
           ],
-        ): "45"
-      },
-      4: {
-        Center(
-          child: Table(
-            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-            border: TableBorder.all(
-              color: Colors.white,
+        ),
+        Divider(
+          height: 70,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+              border: TableBorder.all(
+                color: Colors.white,
+              ),
+              defaultColumnWidth: FixedColumnWidth(50),
+              children: [
+                TableRow(children: [
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                ]),
+                TableRow(children: [
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                ]),
+                TableRow(children: [
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 50,
+                  ),
+                ])
+              ],
             ),
-            defaultColumnWidth: FixedColumnWidth(80),
-            children: [
-              TableRow(children: [
-                Container(height: 70, child: Center(child: Text("12"))),
-                Container(height: 70, child: Center(child: Text("108"))),
-                Container(height: 70, child: Center(child: Text("60"))),
-              ]),
-              TableRow(children: [
-                Container(height: 70, child: Center(child: Text("36"))),
-                Container(height: 70, child: Center(child: Text("?"))),
-                Container(height: 70, child: Center(child: Text("48"))),
-              ]),
-              TableRow(children: [
-                Container(height: 70, child: Center(child: Text("24"))),
-                Container(height: 70, child: Center(child: Text("144"))),
-                Container(height: 70, child: Center(child: Text("96"))),
-              ])
-            ],
-          ),
-        ): "72"
-      }
-    };
+            Text("     =   ?")
+          ],
+        ),
+      ]): "14"
+    },
+  };
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
