@@ -57,12 +57,12 @@ class _CalculatorState extends State<Calculator> {
       displayedVal = displayedVal.toInt().toString();
     }
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Container(height: (globals.height) * 0.275),
+        // Container(height: (globals.height) * 0.275),
         Container(
           child: Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.topRight,
             child: Text(
               "$displayedVal",
               textAlign: TextAlign.right,
@@ -75,11 +75,11 @@ class _CalculatorState extends State<Calculator> {
           ),
         ),
         Divider(
-          thickness: 5,
+          thickness: 30,
           // color: Colors.white,
         ),
         Container(
-            height: (globals.height) * 0.5 + 60,
+            height: (globals.height) * 0.5,
             alignment: Alignment.bottomCenter,
             child: GridView.builder(
               // shrinkWrap: true,
@@ -130,7 +130,7 @@ class _CalculatorState extends State<Calculator> {
                           displayedVal =
                               displayedVal.replaceAll(RegExp(r'.$'), "");
                         } else {}
-                      }else if (tappedVal.data == "") {
+                      } else if (tappedVal.data == "") {
                         displayedVal = displayedVal;
                       } else if (tappedVal.data == "=") {
                         equalPressed = true;
@@ -150,7 +150,7 @@ class _CalculatorState extends State<Calculator> {
                       } else if (tappedVal.data == "%") {
                         displayedVal =
                             (double.parse(displayedVal) / 100).toString();
-                      }  else {
+                      } else {
                         displayedVal += values.keys.toList()[index].data;
                       }
                     });
