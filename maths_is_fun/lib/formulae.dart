@@ -1,5 +1,3 @@
-
-  
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
@@ -109,80 +107,72 @@ Map formulae = {
     0: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
-          children:[
-        RaiseToPower(
+          children: [
+            RaiseToPower(
               char: "sin",
               power: 2,
-             
             ),
-        RaiseToPower(
+            RaiseToPower(
               char: "θ + cos",
               power: 2,
             ),
-       Text("θ = 1"),
-             ],
-      )),
-            
-   1: DefaultTextStyle(
+            Text("θ = 1"),
+          ],
+        )),
+    1: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
-        RaiseToPower(
+            RaiseToPower(
               char: "sec",
-              power: 2, 
+              power: 2,
             ),
-        RaiseToPower(
+            RaiseToPower(
               char: "θ - tan",
               power: 2,
             ),
-       Text("θ = 1"),
-           ],
-      )),
-            
-     2: DefaultTextStyle(
+            Text("θ = 1"),
+          ],
+        )),
+    2: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
             Text("1+"),
-        RaiseToPower(
-             char: "tan",
-             power: 2,
+            RaiseToPower(
+              char: "tan",
+              power: 2,
             ),
-        RaiseToPower(
+            RaiseToPower(
               char: "θ= 1/cot",
-              power:2,
+              power: 2,
             ),
-        Text("θ"),
+            Text("θ"),
           ],
-     )),
-   3:  DefaultTextStyle(
+        )),
+    3: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(children: [
+          Text("tanθ.cotθ=1"),
+        ])),
+    4: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 20),
         child: Row(
           children: [
-            Text("tanθ.cotθ=1"),
-            ]
-        )),  
-  4: DefaultTextStyle(
-        style: TextStyle(color: Colors.white, fontSize: 20),
-        child: Row(
-          children: [
-        RaiseToPower(
-             char: "sin",
-             power: -1,
+            RaiseToPower(
+              char: "sin",
+              power: -1,
             ),
-        RaiseToPower(
+            RaiseToPower(
               char: "θ + cos",
-              power:-1,
+              power: -1,
             ),
-          Text("θ = π/2"),
-        
+            Text("θ = π/2"),
           ],
-     )),
-            
-  "Derivatives": {},
-  "Integration": {},
-  "Logarithms": {},
-
+        )),
+    "Derivatives": {},
+    "Integration": {},
+    "Logarithms": {},
   },
 };
 
@@ -200,12 +190,19 @@ class RaiseToPower extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
         WidgetSpan(
-          child: Text("$power",
-              style: TextStyle(
-                fontFeatures: [
-                  FontFeature.enable('sups'),
-                ],
-              )),
+          child: Transform.translate(
+            offset: const Offset(1, -4),
+            child:
+                //superscript is usually smaller in size
+                Text("$power",
+                    textScaleFactor: 0.7,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFeatures: [
+                        FontFeature.enable('sups'),
+                      ],
+                    )),
+          ),
         ),
       ]),
     );
