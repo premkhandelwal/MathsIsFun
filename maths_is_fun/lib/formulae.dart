@@ -170,7 +170,44 @@ Map formulae = {
             Text("θ = π/2"),
           ],
         )),
-    "Derivatives": {},
+    "Derivatives": {
+    0: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+            RaiseToPower(
+              char:"d/dx(x",
+              power: n,
+             ),
+             RaiseToPower(
+               char:")=nx",
+               power:n-1,
+               ),
+            
+            ],
+        )),
+    
+     1: DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+           Text("d/dx(fg)=fg'+gf'")
+            
+            ],
+        )),
+      2.DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+            Text("d/dx(secx)=secx.tanx")
+           ],
+        )),
+        
+    
+    
+    
+    
+    },
     "Integration": {},
     "Logarithms": {},
   },
