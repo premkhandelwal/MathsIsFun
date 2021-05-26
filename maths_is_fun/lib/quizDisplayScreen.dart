@@ -51,7 +51,7 @@ class _QuizDisplayScreenState extends State<QuizDisplayScreen> {
               CustomTriangle(val1: 5, val2: 4, val3: 20),
             ],
           ),
-          Divider(height: 60),
+          Divider(height: 40),
           CustomTriangle(val1: 15, val2: 3, val3: "?"),
         ],
       ): "45"
