@@ -187,21 +187,10 @@ Map formulae = {
             ],
         )),
     
-     1: DefaultTextStyle(
-        style: TextStyle(color: Colors.white, fontSize: 20),
-        child: Row(
-          children: [
-           Text("d/dx(fg)=fg'+gf'")
-            
-            ],
-        )),
-      2.DefaultTextStyle(
-        style: TextStyle(color: Colors.white, fontSize: 20),
-        child: Row(
-          children: [
-            Text("d/dx(secx)=secx.tanx")
-           ],
-        )),
+     1:Text("d/dx(fg)=fg'+gf'",style: TextStyle(color: Colors.white, fontSize: 20),),
+        
+      2: Text("d/dx(secx)=secx.tanx",style: TextStyle(color: Colors.white, fontSize: 20),
+           
         
     
     
