@@ -188,17 +188,53 @@ Map formulae = {
         )),
     
      1:Text("d/dx(fg)=fg'+gf'",style: TextStyle(color: Colors.white, fontSize: 20),),
-        
-      2: Text("d/dx(secx)=secx.tanx",style: TextStyle(color: Colors.white, fontSize: 20),),
            
-        
-    
-    
-    
+     2:Text("d/dx(lnx)=1/x)",style: TextStyle(color: Colors.white, fontSize: 20),),
+      
+     3:Text("d/dx()",style: TextStyle(color: Colors.white, fontSize: 20),),
+       
+     4:Text("d/dx(sixn)=cosx",style: TextStyle(color: Colors.white, fontSize: 20),),
+     
+     5:Text("d/dx(cosx)=-sinx",style: TextStyle(color: Colors.white, fontSize: 20),),
+      
+     6:Text("d/dx(tanx)=secx.secx",style: TextStyle(color: Colors.white, fontSize: 20),),
+      
+     7:Text("d/dx(secx)=secx.tanx",style: TextStyle(color: Colors.white, fontSize: 20),),
     
     },
-    "Integration": {},
-    "Logarithms": {},
+    "Integration": {
+    
+     0:Text("∫ sinx dx = – cosx + C",style: TextStyle(color: Colors.white, fontSize: 20),),
+      
+     1:Text("∫ cosx dx = sinx + C",style: TextStyle(color: Colors.white, fontSize: 20),),
+      
+     2:Text("∫ secx (tanx)dx = sec x + C",style: TextStyle(color: Colors.white, fontSize: 20),),
+      
+     3:Text("∫ cosecx (cotx) dx = – cscx + C",style: TextStyle(color: Colors.white, fontSize: 20),),
+    
+     4:Text("∫ (1/x)dx = ln|x| + C",style: TextStyle(color: Colors.white, fontSize: 20),),
+    
+    },
+    "Logarithms": {
+    
+     0:Text("ln(xy)=ln(x)+ln(y)",style: TextStyle(color: Colors.white, fontSize: 20),),
+     1:Text("ln(x/y)=ln(x)−ln(y)",style: TextStyle(color: Colors.white, fontSize: 20),), 
+     3:Text("ln(e)=1",style: TextStyle(color: Colors.white, fontSize: 20),), 
+     4:Text("ln(1)=0",style: TextStyle(color: Colors.white, fontSize: 20),), 
+     5:Text("	 ln(1/x)=−ln(x)",style: TextStyle(color: Colors.white, fontSize: 20),), 
+     6:DefaultTextStyle(
+        style: TextStyle(color: Colors.white, fontSize: 20),
+        child: Row(
+          children: [
+            RaiseToPower(
+              char:"ln(x",
+              power: y,
+             ),
+             text(")=yln(x)"),
+            
+            ],
+        )),
+    },
   },
 };
 
