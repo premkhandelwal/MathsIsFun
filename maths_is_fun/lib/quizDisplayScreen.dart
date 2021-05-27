@@ -130,6 +130,7 @@ class _QuizDisplayScreenState extends State<QuizDisplayScreen> {
               border: TableBorder.all(
                 color: Colors.white,
               ),
+              
               defaultColumnWidth: FixedColumnWidth(50),
               children: [
                 TableRow(children: [
@@ -184,134 +185,138 @@ class _QuizDisplayScreenState extends State<QuizDisplayScreen> {
       ),
       body: DefaultTextStyle(
         style: TextStyle(color: Colors.white, fontSize: 25),
-        child: Column(
-          children: [
-            Container(
-              // alignment: Alignment.center,
-              width: globals.width * 2,
-              height: globals.height * 0.7,
-              child: quiz[widget.level].keys.first,
-            ),
-            isWrongAnswer
-                ? FutureBuilder(
-                    future: Future.delayed(Duration(seconds: 3)),
-                    builder: (c, s) {
-                      isWrongAnswer = false;
-                      return s.connectionState != ConnectionState.done
-                          ? Text(
-                              'Wrong Answer. Try again!',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
-                            )
-                          : Text('');
-                    })
-                : Container(),
-            // }); Text("Wrong Answer. Try Again") : Container(),
-            Divider(
-              color: Colors.grey,
-            ),
-            Container(
-              // padding: EdgeInsets.only(left: 05),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                // alignment: Alignment.center,
+                width: globals.width * 2,
+                height: globals.height * 0.7,
+                child: quiz[widget.level].keys.first,
+              ),
+              isWrongAnswer
+                  ? FutureBuilder(
+                      future: Future.delayed(Duration(seconds: 3)),
+                      builder: (c, s) {
+                        isWrongAnswer = false;
+                        return s.connectionState != ConnectionState.done
+                            ? Text(
+                                'Wrong Answer. Try again!',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              )
+                            : Text('');
+                      })
+                  : Container(),
+              // }); Text("Wrong Answer. Try Again") : Container(),
+              Divider(
+                color: Colors.grey,
+              ),
+              Container(
+                // padding: EdgeInsets.only(left: 05),
 
-              alignment: Alignment.bottomCenter,
-              // height: 20,
-              child: Column(
-                children: [
-                  Row(
+                alignment: Alignment.bottomCenter,
+                // height: 20,
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      Flexible(
-                        child: Container(
-                          width: 250,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey)),
-                          child: TextFormField(
-                            expands: false,
-                            // enabled: false,
-                            readOnly: true,
-                            style: TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              enabledBorder: InputBorder.none,
-                              border: InputBorder.none,
-                              filled: true,
-                              fillColor: Colors.black,
-                              hintText: 'Answer',
-                              hintStyle:
-                                  TextStyle(color: Colors.white, fontSize: 15),
-                              suffixIcon: IconButton(
-                                // Icon to
-                                icon: Icon(
-                                  Icons.clear,
-                                  color: Colors.white,
-                                ), // clear text
-                                onPressed: () {
-                                  answerController.clear();
-                                },
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Container(
+                              width: 250,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey)),
+                              child: TextFormField(
+                                expands: false,
+                                // enabled: false,
+                                readOnly: true,
+                                style: TextStyle(color: Colors.white),
+                                decoration: InputDecoration(
+                                  enabledBorder: InputBorder.none,
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  fillColor: Colors.black,
+                                  hintText: 'Answer',
+                                  hintStyle: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                  suffixIcon: IconButton(
+                                    // Icon to
+                                    icon: Icon(
+                                      Icons.clear,
+                                      color: Colors.white,
+                                    ), // clear text
+                                    onPressed: () {
+                                      answerController.clear();
+                                    },
+                                  ),
+                                ),
+                                controller: answerController,
                               ),
                             ),
-                            controller: answerController,
                           ),
-                        ),
+                          Divider(
+                            indent: 15,
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              if (quiz[widget.level].values.first ==
+                                  answerController.text) {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (ctx) => CorrectAnswerScreen(
+                                              level: widget.level,
+                                            )),
+                                    (route) => false);
+                              } else {
+                                setState(() {
+                                  isWrongAnswer = true;
+                                });
+                              }
+                            },
+                            child: Text("ENTER"),
+                            style: TextButton.styleFrom(
+                              side: BorderSide(color: Colors.grey),
+                              backgroundColor: Colors.black,
+                            ),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: List.generate(
+                            5,
+                            (index) => Container(
+                                width: globals.width * 0.4,
+                                padding: EdgeInsets.only(left: 25, top: 25),
+                                child: GestureDetector(
+                                    onTap: () {
+                                      answerController.text += index.toString();
+                                    },
+                                    child: Text("$index")))),
                       ),
                       Divider(
-                        indent: 15,
+                        height: 20,
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          if (quiz[widget.level].values.first ==
-                              answerController.text) {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (ctx) => CorrectAnswerScreen(
-                                          level: widget.level,
-                                        )),
-                                (route) => false);
-                          } else {
-                            setState(() {
-                              isWrongAnswer = true;
-                            });
-                          }
-                        },
-                        child: Text("ENTER"),
-                        style: TextButton.styleFrom(
-                          side: BorderSide(color: Colors.grey),
-                          backgroundColor: Colors.black,
-                        ),
-                      )
+                      Row(
+                        children: List.generate(
+                            5,
+                            (index) => Container(
+                                width: globals.width * 0.4,
+                                padding: EdgeInsets.only(left: 25, top: 15),
+                                child: GestureDetector(
+                                    onTap: () {
+                                      answerController.text +=
+                                          (index + 5).toString();
+                                    },
+                                    child: Text("${index + 5}")))),
+                      ),
                     ],
                   ),
-                  Row(
-                    children: List.generate(
-                        5,
-                        (index) => Container(
-                            width: globals.width * 0.4,
-                            padding: EdgeInsets.only(left: 25, top: 25),
-                            child: GestureDetector(
-                                onTap: () {
-                                  answerController.text += index.toString();
-                                },
-                                child: Text("$index")))),
-                  ),
-                  Divider(
-                    height: 20,
-                  ),
-                  Row(
-                    children: List.generate(
-                        5,
-                        (index) => Container(
-                            width: globals.width * 0.4,
-                            padding: EdgeInsets.only(left: 25, top: 15),
-                            child: GestureDetector(
-                                onTap: () {
-                                  answerController.text +=
-                                      (index + 5).toString();
-                                },
-                                child: Text("${index + 5}")))),
-                  ),
-                ],
-              ),
-            )
-          ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
