@@ -53,6 +53,7 @@ class _CalculatorState extends State<Calculator> {
   };
   @override
   Widget build(BuildContext context) {
+    
     if (displayedVal.endsWith(".0")) {
       displayedVal = displayedVal.toInt().toString();
     }
